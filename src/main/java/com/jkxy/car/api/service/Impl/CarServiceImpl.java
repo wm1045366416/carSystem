@@ -2,6 +2,8 @@ package com.jkxy.car.api.service.Impl;
 
 import com.jkxy.car.api.dao.CarDao;
 import com.jkxy.car.api.pojo.Car;
+import com.jkxy.car.api.pojo.CarRecord;
+import com.jkxy.car.api.pojo.CarRequest;
 import com.jkxy.car.api.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,5 +44,13 @@ public class CarServiceImpl implements CarService {
     @Override
     public void insertCar(Car car) {
         carDao.insertCar(car);
+    }
+    @Override
+    public List<Car> findAllByKeyWord(CarRequest request){
+        return carDao.findAllByKeyWord(request) ;
+    }
+    @Override
+    public long countAllByKeyWord(CarRequest request){
+        return carDao.countAllByKeyWord(request) ;
     }
 }
